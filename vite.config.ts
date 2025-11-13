@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve("src", 'src/components/index.tsx'),
+      entry: path.resolve("src", 'components/index.tsx'),
       name: 'persian-datepicker-shadcn',
       fileName: (format) => `persian-datepicker-shadcn.${format}.js`
     },
