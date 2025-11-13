@@ -12,10 +12,11 @@ import { addDays, format } from "date-fns"
 import { CalendarIcon } from "lucide-react"
 import * as React from "react"
 import { type DateRange } from "react-day-picker"
-
+import { PersianCalendar } from "./PersianCalendar"
 export default function DateRangePicker({
   className,
-}: React.HTMLAttributes<HTMLDivElement>) {
+  language,
+}: React.HTMLAttributes<HTMLDivElement> & {language: 'fa' | 'en'}) {
   const [date, setDate] = React.useState<DateRange | undefined>({
     from: addDays(new Date(), -20),
     to: new Date(),
@@ -49,14 +50,27 @@ export default function DateRangePicker({
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
-          <Calendar
-            autoFocus
-            mode="range"
-            defaultMonth={date?.from}
-            selected={date}
-            onSelect={setDate}
-            numberOfMonths={2}
-          />
+            {
+                language === 'fa' ? (
+                    <PersianCalendar
+                        autoFocus
+                        mode="range"
+                        defaultMonth={date?.from}
+                        selected={date}
+                        onSelect={setDate}
+                        numberOfMonths={2}
+                    />
+                ) : (
+                    <Calendar
+                        autoFocus
+                        mode="range"
+                        defaultMonth={date?.from}
+                        selected={date}
+                        onSelect={setDate}
+                        numberOfMonths={2}
+                    />
+                )
+            }
         </PopoverContent>
       </Popover>
     </div>

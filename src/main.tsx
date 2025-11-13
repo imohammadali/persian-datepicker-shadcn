@@ -5,6 +5,6 @@ import { DatePicker } from './components'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <DatePicker />
+    <DatePicker language="fa" placeholder="Pick a date" />
   </StrictMode>,
 )

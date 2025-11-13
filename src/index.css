@@ -2,3 +2,10 @@
 @theme {
   --color-primary: #4287f5;
 }
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('./assets/fonts/Vazirmatn-Regular.woff2') format('woff2');
+}
+body {
+  font-family: 'Vazirmatn', sans-serif;
+}
